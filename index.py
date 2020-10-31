@@ -39,21 +39,21 @@ class PixelMap:
     def solve(self):
         self.entryCoordinate
 
-        def getValidSteps(pos):
-            (x, y) = pos
-            leftPos = (x-1, y)
-            rightPos = (x+1, y)
-            upPos = (x, y-1)
-            downPos = (x, y+1)
-            goodPosistions = []
-            if(self.getValueAtPos(leftPos) == 1):
-                goodPosistions.append(leftPos)
-            if(self.getValueAtPos(rightPos) == 1):
-                goodPosistions.append(rightPos)
-            if(self.getValueAtPos(upPos) == 1):
-                goodPosistions.append(upPos)
-            if(self.getValueAtPos(downPos) == 1):
-                goodPosistions.append(downPos)
+    def getValidSteps(self, pos):
+        (x, y) = pos
+        leftPos = (x-1, y)
+        rightPos = (x+1, y)
+        upPos = (x, y-1)
+        downPos = (x, y+1)
+        goodPosistions = []
+        if(self.getValueAtPos(leftPos) == 1):
+            goodPosistions.append(leftPos)
+        if(self.getValueAtPos(rightPos) == 1):
+            goodPosistions.append(rightPos)
+        if(self.getValueAtPos(upPos) == 1):
+            goodPosistions.append(upPos)
+        if(self.getValueAtPos(downPos) == 1):
+            goodPosistions.append(downPos)
 
     def getValueAtPos(self, pos):
         (x, y) = pos
