@@ -29,6 +29,18 @@ class PixelMap:
     def solveMap(self):
         pass
 
+    def __str__(self):
+        longstr = ""
+        for i in range(len(self.map)):
+            s = ""
+            for pix in self.map[i]:
+                s += str(pix)
+            longstr += s + "\n"
+
+        return longstr
+
 
 pixelMap = PixelMap("labyrinth.png", (1, 1))
 print(pixelMap.map)
+
+print(pixelMap)
