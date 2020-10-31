@@ -1,0 +1,5 @@
+python -m venv virtualenvironment
+
+virtualenvironment\Scripts\activate.bat
+
+auf mac:  virtualenvironment/Scripts/activate.bat
