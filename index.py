@@ -10,6 +10,7 @@ class PixelMap:
     def __init__(self, imagePath, entryCoordinate):
         self.img = Image.open(imagePath)
         self.convertImageToMap()
+        self.entryCoordinate = entryCoordinate
 
     def convertImageToMap(self):
         arr = []
@@ -20,7 +21,7 @@ class PixelMap:
             for xi in range(x):
                 pix = self.img.getpixel((xi, yi))
                 (r, g, b, a) = pix
-                pix_as_num = 1 if r+g+b < 700 else 0
+                pix_as_num = 0 if r+g+b < 700 else 1
                 arr[yi].append(pix_as_num)
         self.map = arr
 
@@ -32,12 +33,14 @@ class PixelMap:
         for i in range(len(self.map)):
             s = ""
             for pix in self.map[i]:
-                s += "■" if pix == 0 else "□"
+                s += "■" if pix == 1 else "□"
             longstr += s + "\n"
         return longstr
 
     def solve(self):
         self.entryCoordinate
+
+        print(self.getValidSteps(self.entryCoordinate))
 
     def getValidSteps(self, pos):
         (x, y) = pos
@@ -66,7 +69,7 @@ class PixelMap:
         return self.map[y][x]
 
 
-pixelMap = PixelMap("labyrinth3.png", (1, 1))
+pixelMap = PixelMap("labyrinth3.png", (1, 0))
 print(pixelMap)
-print(pixelMap.getValueAtPos((1, 0)))
+print(pixelMap.getValueAtPos(pixelMap.entryCoordinate))
 # pixelMap.solve()
