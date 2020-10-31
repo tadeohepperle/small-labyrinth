@@ -36,7 +36,15 @@ class PixelMap:
             for pix in self.map[i]:
                 s += str(pix)
             longstr += s + "\n"
+        return longstr
 
+    def __repr__(self):
+        longstr = ""
+        for i in range(len(self.map)):
+            s = ""
+            for pix in self.map[i]:
+                s += str(pix)
+            longstr += s + "\n"
         return longstr
 
 
