@@ -15,16 +15,19 @@ class PixelMap:
 
     def convertImageToMap(self):
         arr = []
-        x = self.img.size[1]
-        y = self.img.size[0]
-        for xi in range(x):
+        x = self.img.size[0]
+        y = self.img.size[1]
+        for yi in range(y):
             arr.append([])
-            for yi in range(y):
+            for xi in range(x):
                 pix = self.img.getpixel((xi, yi))
                 (r, g, b, a) = pix
-                pix_as_num = 1 if r+g+b > 700 else 0
-                arr[xi].append(pix_as_num)
+                pix_as_num = 1 if r+g+b < 700 else 0
+                arr[yi].append(pix_as_num)
         self.map = arr
+
+    def solveMap(self):
+        pass
 
 
 pixelMap = PixelMap("labyrinth.png", (1, 1))
